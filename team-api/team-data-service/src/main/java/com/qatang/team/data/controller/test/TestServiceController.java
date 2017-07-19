@@ -1,5 +1,6 @@
-package com.qatang.team.data.controller;
+package com.qatang.team.data.controller.test;
 
+import com.qatang.team.data.service.test.TestService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

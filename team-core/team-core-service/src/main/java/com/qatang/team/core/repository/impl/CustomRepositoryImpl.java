@@ -6,8 +6,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.data.jpa.repository.support.JpaEntityInformation;
 import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
-import org.springframework.util.Assert;
 
 import javax.persistence.EntityManager;
 import javax.persistence.LockModeType;
@@ -23,12 +23,16 @@ import java.util.List;
 public class CustomRepositoryImpl<T, ID extends Serializable> extends SimpleJpaRepository<T, ID> implements CustomRepository<T, ID> {
     private final EntityManager entityManager;
 
-    private final Class<T> domainClass;
+/*    public CustomRepositoryImpl(JpaEntityInformation<T, ?> entityInformation, EntityManager entityManager) {
+        super(entityInformation, entityManager);
+
+        this.entityManager = entityManager;
+    }*/
+
 
     public CustomRepositoryImpl(Class<T> domainClass, EntityManager em) {
         super(domainClass, em);
         this.entityManager = em;
-        this.domainClass = domainClass;
     }
 
     @Override
